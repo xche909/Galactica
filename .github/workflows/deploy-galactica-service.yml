@@ -24,6 +24,8 @@ jobs:
 
   deploy-to-dev:
     runs-on: ubuntu-latest
+    environment:
+      name: dev
     needs: unit-test
     env:
       DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
