@@ -23,7 +23,7 @@ jobs:
         run: npm run unit-test
 
   deploy-to-dev:
-    runs-on: macos-latest
+    runs-on: windows-latest
     environment:
       name: dev
     needs: unit-test
