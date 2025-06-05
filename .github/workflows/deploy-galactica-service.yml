@@ -45,11 +45,12 @@ jobs:
       - name: Run migration scrips
         run: npx prisma migrate deploy
 
-      uses: bervProject/railway-deploy@main
-        with:
-          railway_token: ${{ secrets.RAILWAY_TOKEN }}
-          service: "Galactica"
-          detach: true
+      - name: Deploy to dev environment
+        uses: bervProject/railway-deploy@main
+          with:
+            railway_token: ${{ secrets.RAILWAY_TOKEN }}
+            service: "Galactica"
+            detach: true
 
       # - name: Deploy to dev environment
       #   run: |
