@@ -42,3 +42,10 @@ jobs:
         
       - name: Run Prisma Migrations
         run: npx prisma migrate deploy
+
+      - name: Deploy to dev environment
+        run: |
+          npm i -g @railway/cli
+          railway up --environment ${{ secrets.RAILWAY_DEV_ENVIRONMENT_ID }}
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
