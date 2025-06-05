@@ -24,8 +24,9 @@ jobs:
         
   run-migration:
     runs-on: ubuntu-latest
+    needs: unit-test
     env:
-      DATABASE_URL: mysql://avnadmin:AVNS_ZMR2V_PGIgb1YSJLzAH@galactica-dev-pocket-pulse-db-dev.j.aivencloud.com:26783/defaultdb?ssl-mode=REQUIRED
+      DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
 
     steps:
       - name: Checkout Repository
